@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1: Inline, Internal, & External CSS</title>
+    <!-- Internal CSS style tag -->
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 0;
+        }
+        .header-bar {
+            background-color: #020617;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-title {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-weight: 700;
+        }
+    </style>
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="styles_ex1.css">
+</head>
+<body>
+
+    <header class="header-bar">
+        <h3 class="header-title" style="background: linear-gradient(90deg, #38bdf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Community Event Portal</h3>
+        <a class="nav-link" href="index.html">← Dashboard</a>
+    </header>
+
+    <main class="container">
+        <!-- Task: Inline style to make one heading red -->
+        <h1 style="color: #f43f5e; font-size: 2.2rem; margin-top: 0;">Exercise 1: Applying Styles</h1>
+        
+        <p class="lead" style="color: #94a3b8; font-size: 1.1rem; line-height: 1.6;">
+            This page demonstrates the implementation of the three main methods of incorporating CSS into HTML: 
+            <strong>Inline</strong>, <strong>Internal (embedded)</strong>, and <strong>External</strong>.
+        </p>
+
+        <div class="info-card">
+            <h3 style="color: #38bdf8; margin-top: 0; margin-bottom: 15px;">Methods Implemented:</h3>
+            <ul style="padding-left: 20px; line-height: 1.8; color: #cbd5e1;">
+                <li>
+                    <strong>Inline Style:</strong> Applied directly to the main page heading <code>&lt;h1 style="color: #f43f5e;"&gt;</code> to force a custom pink/red color.
+                </li>
+                <li>
+                    <strong>Internal Style:</strong> Declared inside the <code>&lt;style&gt;</code> element in the document head, setting the body background (<code>#0f172a</code>) and header layout.
+                </li>
+                <li>
+                    <strong>External Style:</strong> Linked via <code>styles_ex1.css</code>, which handles modular, reusable layouts like the card container class (<code>.info-card</code>) and typography alignment.
+                </li>
+            </ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+            <a href="index.html" class="nav-link">← Main Menu</a>
+            <a href="ex_2.html" class="nav-link">Exercise 2 →</a>
+        </div>
+    </main>
+
+</body>
+</html>

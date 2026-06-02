@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 7: Table Styling</title>
+    <!-- Link styles_ex7.css which styles the table element -->
+    <link rel="stylesheet" href="styles_ex7.css">
+</head>
+<body>
+
+    <div class="portal-container">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <a class="sub-link" href="index.html">← Back to Dashboard</a>
+            <span style="color: #cbd5e1; font-weight: bold;">Exercise 7</span>
+        </div>
+
+        <h2 style="color: #ffffff; text-align: center; font-weight: 700; margin-bottom: 10px;">Event Administration List</h2>
+        <p style="text-align: center; color: #94a3b8; font-size: 0.95rem; margin-bottom: 30px;">
+            Below is a sample scheduler sheet styled with collapsed borders, cell padding, and alternating row layouts.
+        </p>
+
+        <!-- Admin Table Element -->
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Event ID</th>
+                    <th>Event Title</th>
+                    <th>Date Scheduled</th>
+                    <th>Max Registrations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#EV-294</td>
+                    <td>Summer Jazz Festival</td>
+                    <td>July 18, 2026</td>
+                    <td>450</td>
+                </tr>
+                <tr>
+                    <td>#EV-112</td>
+                    <td>Neighborhood Cleanup</td>
+                    <td>August 02, 2026</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>#EV-305</td>
+                    <td>Arts & Crafts Fair</td>
+                    <td>September 15, 2026</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>#EV-419</td>
+                    <td>Annual Solar Workshop</td>
+                    <td>October 09, 2026</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>#EV-088</td>
+                    <td>Civic App Hackathon</td>
+                    <td>November 22, 2026</td>
+                    <td>300</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Specs Card -->
+        <div class="info-card" style="margin-top: 30px;">
+            <h4 style="color: #a78bfa; margin-top: 0; margin-bottom: 12px;">Table Properties Implemented:</h4>
+            <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.9rem; margin-bottom: 0;">
+                <li><code>border-collapse: collapse;</code> Merges cell borders together, eliminating default double-borders.</li>
+                <li><code>text-align: center;</code> Centers the content inside headers (<code>th</code>) and data elements (<code>td</code>) identically.</li>
+                <li><code>padding: 14px 20px;</code> Creates comfortable grid breathing room inside table blocks.</li>
+                <li><code>tr:nth-child(even)</code> Selects every second row dynamically to apply alternating background coloring (Zebra Striping).</li>
+            </ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+            <a href="ex_6.html" class="sub-link">← Previous</a>
+            <a href="index.html" class="sub-link">Back to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>

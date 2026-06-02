@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Exercises Dashboard</title>
+    <style>
+        /* Pure CSS3 Variables */
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(30, 41, 59, 0.45);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-primary: #38bdf8;
+            --accent-secondary: #c084fc;
+            --accent-glow: rgba(99, 102, 241, 0.2);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(135deg, #0f172a 0%, #020617 50%, #1e1b4b 100%);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero / Header Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .title span {
+            background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* CSS3 Glassmorphism Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px var(--accent-glow);
+            border-color: rgba(99, 102, 241, 0.4);
+            background-color: rgba(30, 41, 59, 0.55);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-primary);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .card-link:hover {
+            color: var(--accent-secondary);
+            transform: translateX(5px);
+        }
+
+        .card-link span {
+            margin-left: 8px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Hero Title -->
+        <div class="hero">
+            <span class="badge">CSS3 Workspace</span>
+            <h1 class="title">Styling the <span>Event Portal</span></h1>
+            <p class="subtitle">
+                An interactive catalog demonstrating pure CSS3 event-portal-themed exercises. Navigate through the files to inspect inline/embedded/external rules, selectors, gradients, webfonts, pseudo-classes, and grid elements.
+            </p>
+        </div>
+
+        <!-- Exercises Cards Grid -->
+        <div class="grid">
+
+            <!-- Card 1 -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">📁</div>
+                    <h3 class="card-title">1. Inline vs. Internal vs. External</h3>
+                    <p class="card-desc">Compare the different methods of applying styling rules to web documents and link external stylesheets with code comments.</p>
+                </div>
+                <a href="ex_1.html" class="card-link">Launch Module 1 <span>→</span></a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">✍️</div>
+                    <h3 class="card-title">2. Syntax & Comments</h3>
+                    <p class="card-desc">Maintain readability using proper syntax structure, indentation rules, and descriptive documentation comments.</p>
+                </div>
+                <a href="ex_2.html" class="card-link">Launch Module 2 <span>→</span></a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">3. Selectors Playground</h3>
+                    <p class="card-desc">Investigate specific browser styling targets using universal, element type, unique ID, class, and grouped element selectors.</p>
+                </div>
+                <a href="ex_3.html" class="card-link">Launch Module 3 <span>→</span></a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">4. Color & Backgrounds</h3>
+                    <p class="card-desc">Apply consistent city council branding colors via HEX/RGBA, bind background images, and layout linear gradients.</p>
+                </div>
+                <a href="ex_4.html" class="card-link">Launch Module 4 <span>→</span></a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🔤</div>
+                    <h3 class="card-title">5. Typography Layouts</h3>
+                    <p class="card-desc">Import custom Google Webfonts and configure alignment properties, letter spacings, line heights, and styling weights.</p>
+                </div>
+                <a href="ex_5.html" class="card-link">Launch Module 5 <span>→</span></a>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🔗</div>
+                    <h3 class="card-title">6. Links & Lists Styling</h3>
+                    <p class="card-desc">Control click states with pseudo-classes (:link, :hover, :visited, :active), strip default lists, and style item padding gaps.</p>
+                </div>
+                <a href="ex_6.html" class="card-link">Launch Module 6 <span>→</span></a>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">7. Clean Table Styling</h3>
+                    <p class="card-desc">Align schedulers into collapsed borders, center table data cells, and apply zebra striping with nth-child selectors.</p>
+                </div>
+                <a href="ex_7.html" class="card-link">Launch Module 7 <span>→</span></a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6: Link & List Styling</title>
+    <!-- Link styles_ex6.css which contains link pseudo-classes and custom list setups -->
+    <link rel="stylesheet" href="styles_ex6.css">
+</head>
+<body>
+
+    <div class="portal-container">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <a class="sub-link" href="index.html">← Back to Dashboard</a>
+            <span style="color: #c084fc; font-weight: bold;">Exercise 6</span>
+        </div>
+
+        <!-- Custom Navigation List (No bullets, horizontal layout) -->
+        <ul class="nav-menu">
+            <li><a href="#" class="demo-link">Home</a></li>
+            <li><a href="#topics" class="demo-link">Key Topics</a></li>
+            <li><a href="#resources" class="demo-link">External Resources</a></li>
+        </ul>
+
+        <!-- Event Topic list utilizing squares, inside position, padding, and margins -->
+        <div class="info-card" id="topics">
+            <h3 style="color: #ffffff; margin-top: 0; margin-bottom: 15px;">Community Workshop Topics</h3>
+            <p style="color: #94a3b8; font-size: 0.95rem;">
+                Below is the agenda list. Notice the custom square markers, the padding space inside list items, and the vertical margins separating them:
+            </p>
+            <ul class="event-topics">
+                <li>Urban Gardening and Permaculture Fundamentals</li>
+                <li>Solar Energy Installation for Residential Homes</li>
+                <li>Rainwater Harvesting and Water Management</li>
+                <li>Local Composting and Waste Reduction Systems</li>
+            </ul>
+        </div>
+
+        <!-- Links States Demo -->
+        <div class="info-card" id="resources">
+            <h4 style="color: #c084fc; margin-top: 0; margin-bottom: 12px;">Link States (Pseudo-classes) Test bench</h4>
+            <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 20px;">
+                Interact with the links below to test all pseudo-class states: <code>:link</code>, <code>:hover</code>, <code>:active</code>, and <code>:visited</code>.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div>
+                    <a href="https://example-unvisited-link-12345.org" target="_blank" class="demo-link">Test Unvisited Link (Blue)</a>
+                    <span style="color: #94a3b8; font-size: 0.85rem; margin-left: 15px;">- Opens in a new tab. Hover changes color to pink/red.</span>
+                </div>
+                <div>
+                    <a href="ex_6.html" class="demo-link">Test Visited Link (Purple)</a>
+                    <span style="color: #94a3b8; font-size: 0.85rem; margin-left: 15px;">- Links back to this page (already visited). Hover changes color to pink/red.</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+            <a href="ex_5.html" class="sub-link">← Previous</a>
+            <a href="ex_7.html" class="sub-link">Next Exercise →</a>
+        </div>
+    </div>
+
+</body>
+</html>

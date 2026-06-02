@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5: Typography - Fonts & Text</title>
+    <!-- Link styles_ex5.css which imports Space Grotesk Google Font and sets typography properties -->
+    <link rel="stylesheet" href="styles_ex5.css">
+</head>
+<body>
+
+    <div class="portal-container">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
+            <a class="sub-link" href="index.html">← Back to Dashboard</a>
+            <span style="color: #a78bfa; font-weight: bold;">Exercise 5</span>
+        </div>
+
+        <!-- Typography Demo Card -->
+        <h1 class="event-title">Arts & Crafts Festival</h1>
+        <p class="event-subtitle">Celebrating local creativity, pottery, and canvas painting</p>
+
+        <p class="event-description">
+            The annual <span class="bold-caps">Arts & Crafts Festival</span> invites you to discover over 50 galleries showcasing handmade sculptures, custom textiles, and original prints. Meet local artists, participate in live woodturning sessions, and explore interactive canvas painting workshops open to all skill levels. Kids' craft zones and local acoustic performances run throughout the day.
+        </p>
+
+        <!-- Technical Specification Panel -->
+        <div style="background-color: rgba(255, 255, 255, 0.01); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px;">
+            <h4 style="margin-top: 0; color: #a78bfa; margin-bottom: 15px;">Typography Rules In Use:</h4>
+            <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.95rem;">
+                <li><strong>Font Family:</strong> Imported Google Font <code>'Space Grotesk'</code> via <code>@import</code> inside the external CSS.</li>
+                <li><strong>Text Alignment:</strong> Banner titles are centered (<code>text-align: center</code>), and the description is justified (<code>text-align: justify</code>) for clean paragraph margins.</li>
+                <li><strong>Casing:</strong> Title is uppercase (<code>text-transform: uppercase</code>), and accent labels are uppercase.</li>
+                <li><strong>Spacing:</strong> Title letter spacing is set to <code>3px</code>, and the description line height is styled with <code>1.8</code> for enhanced reading comfort.</li>
+                <li><strong>Font Style & Weight:</strong> Subtitle is styled with <code>font-style: italic</code> and a thin font weight of <code>300</code>.</li>
+            </ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+            <a href="ex_4.html" class="sub-link">← Previous</a>
+            <a href="ex_6.html" class="sub-link">Next Exercise →</a>
+        </div>
+    </div>
+
+</body>
+</html>

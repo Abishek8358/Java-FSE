@@ -1,0 +1,98 @@
+/* Event portal styles */
+
+/* Base body environment */
+body {
+    background-color: #0d111a;
+    color: #f8fafc;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container limits */
+.portal-container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* Link Pseudo-classes Styling */
+
+/* Normal Unvisited Link */
+.demo-link:link {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dotted #38bdf8;
+    transition: all 0.2s ease;
+}
+
+/* Visited Link */
+.demo-link:visited {
+    color: #c084fc;
+    border-bottom-color: #c084fc;
+}
+
+/* Hover Link state */
+.demo-link:hover {
+    color: #f43f5e;
+    border-bottom: 2px solid #f43f5e;
+}
+
+/* Active (Clicked) Link state */
+.demo-link:active {
+    color: #f59e0b;
+}
+
+/* Navbar Menu List (Remove bullets, display inline) */
+.nav-menu {
+    list-style-type: none; /* Removes list bullets */
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: flex;
+    background-color: #161f30;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+/* List Item spacing for navbar */
+.nav-menu li {
+    margin-right: 25px;
+    padding: 5px 0;
+}
+
+/* Vertical Topic List (Custom bullets and padding) */
+.event-topics {
+    list-style-type: square; /* Square bullet markers */
+    list-style-position: inside; /* Align markers inside block flow */
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* List item spacing */
+.event-topics li {
+    margin-bottom: 12px; /* Margin for spacing */
+    padding: 6px 12px; /* Padding for spacing */
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 6px;
+    color: #cbd5e1;
+}
+
+/* Cards Wrapper */
+.info-card {
+    background-color: rgba(22, 31, 48, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+/* Navigation footer */
+.sub-link {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+}
+.sub-link:hover {
+    color: #f43f5e;
+}

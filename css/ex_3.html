@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3: Selectors Playground</title>
+    <!-- Link styles_ex3.css which has the universal reset, h2 style, #mainHeader, .eventCard, and h3,p grouping -->
+    <link rel="stylesheet" href="styles_ex3.css">
+</head>
+<body>
+
+    <div class="portal-container">
+        <!-- ID Selector Applied Here -->
+        <header id="mainHeader">
+            <h1 style="margin: 0; font-size: 2.2rem; background: linear-gradient(90deg, #38bdf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;">Community Event Portal</h1>
+            <p style="color: #94a3b8; font-size: 1rem; margin-top: 10px;">Exploring selectors: ID, Class, Type, Universal, and Grouped</p>
+        </header>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+            <a class="sub-link" href="index.html">← Back to Dashboard</a>
+            <span style="color: #a78bfa; font-weight: bold;">Exercise 3</span>
+        </div>
+
+        <!-- Element Selector (h2) Applied Here -->
+        <h2>Featured Local Events</h2>
+
+        <!-- Class Selector (.eventCard) & Grouped Selector (h3, p) Applied Here -->
+        <div class="eventCard">
+            <h3 style="color: #f8fafc; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">1. Summer Jazz in the Park</h3>
+            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+                Enjoy live performances by regional ensembles at the central pavilion. Admission is free, bring your own lawn chairs and picnic blankets.
+            </p>
+        </div>
+
+        <div class="eventCard">
+            <h3 style="color: #f8fafc; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">2. Neighborhood Cleanup Drive</h3>
+            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+                Partner with local green initiatives to keep our public gardens clean. Cleaning kits, gloves, and beverages are provided at the registration booth.
+            </p>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px;">
+            <h4 style="color: #a78bfa; margin-bottom: 10px;">Selector Legend:</h4>
+            <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.9rem;">
+                <li><code>*</code> (Universal): Resets all margins and paddings globally to 0.</li>
+                <li><code>h2</code> (Element/Type): Styles all subheadings uniformly.</li>
+                <li><code>#mainHeader</code> (ID): Uniquely styles the banner dashboard container.</li>
+                <li><code>.eventCard</code> (Class): Defines layout and background padding rules for each event card.</li>
+                <li><code>h3, p</code> (Grouping): Simultaneously applies font family configurations to both selectors in a single block.</li>
+            </ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+            <a href="ex_2.html" class="sub-link">← Previous</a>
+            <a href="ex_4.html" class="sub-link">Next Exercise →</a>
+        </div>
+    </div>
+
+</body>
+</html>

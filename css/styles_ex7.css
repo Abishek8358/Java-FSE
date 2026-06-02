@@ -1,0 +1,84 @@
+/* Event portal styles */
+
+/* Base body style */
+body {
+    background-color: #0c0f17;
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container limits */
+.portal-container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* Core Table Element: collapses borders and structures layout width */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse; /* Collapses borders into a single border line */
+    margin: 25px 0;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden; /* Ensures rounded card edges clipping tables */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Table Headers (th): padding, color, backgrounds, and alignment */
+.admin-table th {
+    background-color: #1e1b4b; /* Royal deep indigo */
+    color: #a78bfa; /* Lavender header text */
+    padding: 16px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-align: center; /* Center-align header text */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Table Cells (td): borders and spacing */
+.admin-table td {
+    padding: 14px 20px;
+    text-align: center; /* Center-align cell content */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Standard row details backgrounds */
+.admin-table tbody tr {
+    background-color: rgba(22, 31, 48, 0.55);
+    color: #cbd5e1;
+    transition: background-color 0.2s ease;
+}
+
+/* Zebra Striping: targets even rows for alternating light-blue colors */
+.admin-table tbody tr:nth-child(even) {
+    background-color: rgba(30, 41, 59, 0.7); /* Alternating background color */
+}
+
+/* Interactive Hover state for table rows */
+.admin-table tbody tr:hover {
+    background-color: rgba(99, 102, 241, 0.25);
+    color: #ffffff;
+}
+
+/* Section cards layout wrapper */
+.info-card {
+    background-color: rgba(22, 31, 48, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+/* Sub navigation style */
+.sub-link {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+}
+.sub-link:hover {
+    color: #f43f5e;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4: Color & Background Styling</title>
+    <!-- Link styles_ex4.css which handles color and background setups -->
+    <link rel="stylesheet" href="styles_ex4.css">
+</head>
+<body>
+
+    <div class="portal-container">
+        <!-- Section Header with linear-gradient -->
+        <header class="gradient-header">
+            <h1 style="margin: 0; font-size: 2.2rem; font-weight: 800;">Sunset Music Carnival 2026</h1>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 1rem; margin-top: 8px;">Experience community, art, and rhythm on the waterfront</p>
+        </header>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+            <a class="sub-link" href="index.html">← Back to Dashboard</a>
+            <span style="color: #fb7185; font-weight: bold;">Exercise 4</span>
+        </div>
+
+        <!-- Card using RGBA Background and HEX texts -->
+        <div class="rgba-card">
+            <h3 style="color: #ffffff; margin-top: 0; margin-bottom: 12px;">Event Description</h3>
+            <p style="line-height: 1.6; color: #cbd5e1;">
+                Get ready for the biggest event of the summer! The Sunset Music Carnival features over 15 local food trucks, community art installations, and musical acts spanning indie, jazz, and folk genres.
+            </p>
+            <p style="margin-top: 15px; margin-bottom: 0;">
+                <span class="highlight-text">Date & Time:</span> July 18th, 2026 at 4:00 PM <br>
+                <span class="highlight-text">Location:</span> Riverfront Park Plaza
+            </p>
+        </div>
+
+        <!-- Coding Detail Panel -->
+        <div class="rgba-card" style="border-color: rgba(251, 113, 133, 0.2);">
+            <h4 style="color: #fb7185; margin-top: 0; margin-bottom: 10px;">Styling Mechanics Explained:</h4>
+            <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.9rem;">
+                <li><strong>Body Background Pattern:</strong> Controlled by <code>background-image: url('images/background.png');</code> with a fallback hex background color (<code>#070a13</code>) for stability while loading.</li>
+                <li><strong>RGBA Transparency:</strong> The event description card utilizes <code>rgba(30, 41, 59, 0.85)</code> so the abstract background pattern subtly shows through the card container.</li>
+                <li><strong>Linear Gradient:</strong> The main banner header uses a custom gradient: <code>linear-gradient(135deg, #1e1b4b 0%, #431407 100%)</code>.</li>
+            </ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+            <a href="ex_3.html" class="sub-link">← Previous</a>
+            <a href="ex_5.html" class="sub-link">Next Exercise →</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3: Conditionals, Loops, &amp; Error Handling</title>
+    <style>
+        body {
+            background-color: #0c0f17;
+            color: #e2e8f0;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .page-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        .content-panel {
+            background-color: rgba(30, 41, 59, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .nav-anchor {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-anchor:hover {
+            color: #f43f5e;
+        }
+        .event-item {
+            background-color: rgba(22, 31, 48, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+        .register-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .register-btn:hover {
+            background-color: #2563eb;
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            display: none;
+        }
+        .feedback.success {
+            display: block;
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: #34d399;
+        }
+        .feedback.error {
+            display: block;
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            color: #f87171;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="content-panel">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+                <a class="nav-anchor" href="index.html">← Back to Dashboard</a>
+                <span style="color: #c084fc; font-weight: bold;">Exercise 3</span>
+            </div>
+
+            <h1 style="margin: 0; font-size: 2.2rem; font-weight: 800; background: linear-gradient(90deg, #38bdf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Conditionals, Loops, &amp; Error Handling</h1>
+
+            <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 10px; line-height: 1.6;">
+                <strong>User Story Checklist:</strong> Only show active upcoming events that contain free seats. Ensure database operations are wrapped inside exception boundary triggers.
+            </p>
+
+            <!-- Alert / Feedback Area -->
+            <div id="registration-feedback" class="feedback"></div>
+
+            <!-- Dynamically Populated Events Section -->
+            <h3 style="color: #ffffff; font-weight: 700; margin-top: 25px; margin-bottom: 15px;">Available Upcoming Events</h3>
+            <div id="events-container" style="color: #94a3b8; font-size: 0.95rem;">
+                Loading events calendar...
+            </div>
+
+            <!-- Technical Notes -->
+            <div style="margin-top: 30px; padding: 20px; background-color: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                <h4 style="color: #a78bfa; margin-top: 0; margin-bottom: 12px;">Under the Hood:</h4>
+                <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.9rem; margin-bottom: 0;">
+                    <li><strong>Filtering &amp; Loops:</strong> The script iterates over the data using <code>eventsList.forEach()</code>. It evaluates <code>if (!event.isPast &amp;&amp; event.seats &gt; 0)</code> to skip displaying past or full events.</li>
+                    <li><strong>Error Handling:</strong> Inside <code>handleRegistration()</code>, a <code>try-catch</code> wrapper throws errors (e.g. <code>throw new Error("Event is full")</code>) to catch them safely and update the UI without crashing the application.</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <a href="ex_2.html" class="nav-anchor">← Previous</a>
+                <a href="ex_4.html" class="nav-anchor">Next Exercise →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load external script -->
+    <script src="main_ex3.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercises Dashboard</title>
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            --bg-dark: #0b0f19;
+            --surface: rgba(30, 41, 59, 0.45);
+            --border: rgba(255, 255, 255, 0.08);
+            --text-light: #f8fafc;
+            --text-dim: #94a3b8;
+            --sky: #38bdf8;
+            --violet: #c084fc;
+            --glow: rgba(99, 102, 241, 0.2);
+        }
+
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: linear-gradient(135deg, #0f172a 0%, #020617 50%, #1e1b4b 100%);
+            color: var(--text-light);
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header-area {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .tag-chip {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--sky);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .main-title span {
+            background: linear-gradient(90deg, var(--sky) 0%, var(--violet) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Module Cards Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Individual Module Card */
+        .module-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sky), var(--violet));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px var(--glow);
+            border-color: rgba(99, 102, 241, 0.4);
+            background-color: rgba(30, 41, 59, 0.55);
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-emoji {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--sky);
+        }
+
+        .card-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .card-summary {
+            font-size: 0.92rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            color: var(--sky);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .card-cta:hover {
+            color: var(--violet);
+            transform: translateX(5px);
+        }
+
+        .card-cta span {
+            margin-left: 8px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Page Header -->
+        <div class="header-area">
+            <span class="tag-chip">JavaScript Workspace</span>
+            <h1 class="main-title">Interactive <span>JS Playground</span></h1>
+            <p class="tagline">
+                Explore the behavior of data variables, error captures, closures, prototypes, and dynamic arrays within the Local Community Event Portal theme.
+            </p>
+        </div>
+
+        <!-- Module Cards -->
+        <div class="card-grid">
+
+            <!-- Module 1 -->
+            <div class="module-card">
+                <div>
+                    <div class="card-emoji">🚀</div>
+                    <h3 class="card-heading">1. Setup &amp; Console Basics</h3>
+                    <p class="card-summary">Integrate JS script links in document heads, trigger load alerts, and broadcast welcome strings via console logging.</p>
+                </div>
+                <a href="ex_1.html" class="card-cta">Launch Module 1 <span>→</span></a>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-card">
+                <div>
+                    <div class="card-emoji">🔢</div>
+                    <h3 class="card-heading">2. Operators &amp; Variables</h3>
+                    <p class="card-summary">Store values inside const and let blocks, concatenate strings using template variables, and adjust seat limits with ++ and --.</p>
+                </div>
+                <a href="ex_2.html" class="card-cta">Launch Module 2 <span>→</span></a>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-card">
+                <div>
+                    <div class="card-emoji">🔄</div>
+                    <h3 class="card-heading">3. Conditionals &amp; Error Handlers</h3>
+                    <p class="card-summary">Filter active dates via if-else, display structures with forEach, and insulate bookings inside try-catch scopes.</p>
+                </div>
+                <a href="ex_3.html" class="card-cta">Launch Module 3 <span>→</span></a>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module-card">
+                <div>
+                    <div class="card-emoji">📦</div>
+                    <h3 class="card-heading">4. Closures &amp; Callbacks</h3>
+                    <p class="card-summary">Build private registration counters using closures, and pass callback parameters to filter items dynamically.</p>
+                </div>
+                <a href="ex_4.html" class="card-cta">Launch Module 4 <span>→</span></a>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-card">
+                <div>
+                    <div class="card-emoji">🧬</div>
+                    <h3 class="card-heading">5. Objects &amp; Prototypes</h3>
+                    <p class="card-summary">Model database entities with constructor blueprints, define prototype checks, and print key-value maps via Object.entries().</p>
+                </div>
+                <a href="ex_5.html" class="card-cta">Launch Module 5 <span>→</span></a>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module-card">
+                <div>
+                    <div class="card-emoji">📚</div>
+                    <h3 class="card-heading">6. Dynamic Array CRUD</h3>
+                    <p class="card-summary">Add database entries using push(), isolate subsets via filter(), and shape arrays into card components with map().</p>
+                </div>
+                <a href="ex_6.html" class="card-cta">Launch Module 6 <span>→</span></a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

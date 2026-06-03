@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6: Arrays and Methods</title>
+    <style>
+        body {
+            background-color: #0c0f17;
+            color: #e2e8f0;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .page-wrapper {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        .content-panel {
+            background-color: rgba(30, 41, 59, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .nav-anchor {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-anchor:hover {
+            color: #f43f5e;
+        }
+        .event-pill-item {
+            background-color: rgba(22, 31, 48, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        .event-pill-item.music {
+            border-color: rgba(56, 189, 248, 0.2);
+            background-color: rgba(56, 189, 248, 0.05);
+        }
+        .pill-category {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .pill-category.music {
+            background-color: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+        }
+        .input-section {
+            background-color: rgba(0,0,0,0.15);
+            border: 1px dashed rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .field-input {
+            background: #111827;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .save-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .save-btn:hover {
+            background-color: #059669;
+        }
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="content-panel">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+                <a class="nav-anchor" href="index.html">← Back to Dashboard</a>
+                <span style="color: #c084fc; font-weight: bold;">Exercise 6</span>
+            </div>
+
+            <h1 style="margin: 0; font-size: 2.2rem; font-weight: 800; background: linear-gradient(90deg, #38bdf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Arrays and Methods</h1>
+            <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 10px; line-height: 1.6;">
+                Operate on array databases using <code>push()</code> updates, category isolates via <code>filter()</code>, and UI formatting using <code>map()</code>.
+            </p>
+
+            <!-- Form to push a new event -->
+            <div class="input-section">
+                <h4 style="margin-top: 0; color: #ffffff; margin-bottom: 12px;">Push New Event to Array</h4>
+                <form onsubmit="event.preventDefault(); addNewEvent(document.getElementById('evt-name').value, document.getElementById('evt-cat').value); document.getElementById('evt-name').value='';">
+                    <input type="text" id="evt-name" placeholder="Event (e.g. Pottery)" class="field-input" required>
+                    <select id="evt-cat" class="field-input" style="padding: 7px 12px;" required>
+                        <option value="Music">Music</option>
+                        <option value="Workshop">Workshop</option>
+                    </select>
+                    <button type="submit" class="save-btn">Push Event</button>
+                </form>
+            </div>
+
+            <!-- Two-column display -->
+            <div class="split-grid">
+                <div>
+                    <h3 style="color: #ffffff; font-weight: 700; margin-bottom: 15px; font-size: 1.2rem;">All Events (formatted with .map())</h3>
+                    <div id="all-events-list">
+                        Loading...
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: #38bdf8; font-weight: 700; margin-bottom: 15px; font-size: 1.2rem;">Music Category (isolated with .filter())</h3>
+                    <div id="music-events-list">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Method notes -->
+            <div style="padding: 20px; background-color: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                <h4 style="color: #a78bfa; margin-top: 0; margin-bottom: 12px;">Array Methods Used:</h4>
+                <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.9rem; margin-bottom: 0;">
+                    <li><strong>.push():</strong> Inserts the user's input object directly into the end of the array.</li>
+                    <li><strong>.filter():</strong> Returns a subset of the original array (matching only category "Music"), leaving the original untouched.</li>
+                    <li><strong>.map():</strong> Transforms each event object into a string block of HTML elements (prefixing names with "Workshop on " or "Session of " depending on category rules).</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <a href="ex_5.html" class="nav-anchor">← Previous</a>
+                <a href="index.html" class="nav-anchor">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load external script -->
+    <script src="main_ex6.js"></script>
+</body>
+</html>

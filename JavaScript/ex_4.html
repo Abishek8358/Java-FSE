@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4: Functions, Scope, Closures, &amp; HOF</title>
+    <style>
+        body {
+            background-color: #0c0f17;
+            color: #e2e8f0;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .page-wrapper {
+            max-width: 850px;
+            margin: 40px auto;
+        }
+        .content-panel {
+            background-color: rgba(30, 41, 59, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .nav-anchor {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-anchor:hover {
+            color: #f43f5e;
+        }
+        .event-row {
+            background-color: rgba(22, 31, 48, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .category-pill {
+            background-color: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .book-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .book-btn:hover {
+            background-color: #059669;
+        }
+        .input-section {
+            background-color: rgba(0,0,0,0.15);
+            border: 1px dashed rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .field-input {
+            background: #111827;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .save-btn {
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .save-btn:hover {
+            background-color: #4f46e5;
+        }
+        .stats-banner {
+            background-color: rgba(192, 132, 252, 0.15);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            color: #c084fc;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .chip-btn {
+            background-color: rgba(255,255,255,0.05);
+            color: #cbd5e1;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .chip-btn:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+        .results-box {
+            background-color: rgba(0,0,0,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-top: 10px;
+        }
+        .filter-item {
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="content-panel">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+                <a class="nav-anchor" href="index.html">← Back to Dashboard</a>
+                <span style="color: #c084fc; font-weight: bold;">Exercise 4</span>
+            </div>
+
+            <h1 style="margin: 0; font-size: 2.2rem; font-weight: 800; background: linear-gradient(90deg, #38bdf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Closures &amp; Higher-Order Functions</h1>
+            <p style="color: #94a3b8; font-size: 1.02rem; margin-top: 10px; line-height: 1.6;">
+                Encapsulate register logic using private closure trackers and pass filter parameters inside dynamic callbacks.
+            </p>
+
+            <!-- Closure tracker output -->
+            <div id="tracker-stats" class="stats-banner"></div>
+
+            <!-- Add Event Form -->
+            <div class="input-section">
+                <h4 style="margin-top: 0; color: #ffffff; margin-bottom: 12px;">Add Event Instance</h4>
+                <form onsubmit="event.preventDefault(); addEvent(document.getElementById('add-name').value, document.getElementById('add-cat').value, document.getElementById('add-seats').value);">
+                    <input type="text" id="add-name" placeholder="Event Name" class="field-input" required>
+                    <select id="add-cat" class="field-input" style="padding: 7px 12px;" required>
+                        <option value="Music">Music</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Education">Education</option>
+                    </select>
+                    <input type="number" id="add-seats" placeholder="Seats (e.g. 10)" class="field-input" style="width: 120px;" required>
+                    <button type="submit" class="save-btn">Create</button>
+                </form>
+            </div>
+
+            <!-- Event Rows -->
+            <h3 style="color: #ffffff; font-weight: 700; margin-bottom: 15px;">Events Listing</h3>
+            <div id="functional-list">
+                Loading database...
+            </div>
+
+            <!-- HOF Filter Panel -->
+            <div class="input-section" style="margin-top: 30px;">
+                <h4 style="margin-top: 0; color: #ffffff; margin-bottom: 12px;">Higher-Order Filters (Using Callbacks)</h4>
+                <div>
+                    <button class="chip-btn" onclick="triggerFilter('all')">Show All</button>
+                    <button class="chip-btn" onclick="triggerFilter('Music')">Music Only</button>
+                    <button class="chip-btn" onclick="triggerFilter('Technology')">Tech Only</button>
+                    <button class="chip-btn" onclick="triggerFilter('Education')">Education Only</button>
+                </div>
+                <div class="results-box">
+                    <h5 style="margin-top:0; margin-bottom: 10px; color:#a78bfa; font-size: 0.85rem; text-transform: uppercase;">Filtered Results:</h5>
+                    <div id="filter-output"></div>
+                </div>
+            </div>
+
+            <!-- Concept Notes -->
+            <div style="margin-top: 30px; padding: 20px; background-color: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                <h4 style="color: #a78bfa; margin-top: 0; margin-bottom: 12px;">Under the Hood:</h4>
+                <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.9rem; margin-bottom: 0;">
+                    <li><strong>Closures:</strong> <code>createCategoryTracker()</code> wraps a private variable <code>registrationCount</code> that remains in memory and increments when booking buttons are pressed.</li>
+                    <li><strong>Higher-Order Functions:</strong> <code>filterEvents()</code> accepts a callback function argument, making filtering behavior highly dynamic (e.g. filtering matching strings or conditional math).</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <a href="ex_3.html" class="nav-anchor">← Previous</a>
+                <a href="ex_5.html" class="nav-anchor">Next Exercise →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load external script -->
+    <script src="main_ex4.js"></script>
+</body>
+</html>

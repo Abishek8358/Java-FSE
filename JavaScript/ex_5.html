@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5: Objects &amp; Prototypes</title>
+    <style>
+        body {
+            background-color: #0c0f17;
+            color: #e2e8f0;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .page-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        .content-panel {
+            background-color: rgba(30, 41, 59, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .nav-anchor {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-anchor:hover {
+            color: #f43f5e;
+        }
+        .picker-box {
+            background-color: rgba(0,0,0,0.15);
+            border: 1px dashed rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .picker-select {
+            background: #111827;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .detail-card {
+            background-color: rgba(22, 31, 48, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="content-panel">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+                <a class="nav-anchor" href="index.html">← Back to Dashboard</a>
+                <span style="color: #c084fc; font-weight: bold;">Exercise 5</span>
+            </div>
+
+            <h1 style="margin: 0; font-size: 2.2rem; font-weight: 800; background: linear-gradient(90deg, #38bdf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Objects &amp; Prototypes</h1>
+            <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 10px; line-height: 1.6;">
+                Model portal events via custom object structures, bind methods to prototypes, and extract dictionary entries using <code>Object.entries()</code>.
+            </p>
+
+            <!-- Event picker dropdown -->
+            <div class="picker-box">
+                <label for="event-selector" style="color: #ffffff; display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">Select Event to Inspect:</label>
+                <select id="event-selector" class="picker-select" onchange="inspectEvent(this.value)">
+                    <option>Loading event database...</option>
+                </select>
+            </div>
+
+            <!-- Object inspection output -->
+            <h3 style="color: #ffffff; font-weight: 700; margin-bottom: 15px;">Object entries Inspect Output</h3>
+            <div id="inspection-output" class="detail-card">
+                Selecting event instance...
+            </div>
+
+            <!-- Concept notes -->
+            <div style="margin-top: 30px; padding: 20px; background-color: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                <h4 style="color: #a78bfa; margin-top: 0; margin-bottom: 12px;">Object Concepts Implemented:</h4>
+                <ul style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.9rem; margin-bottom: 0;">
+                    <li><strong>Constructor Function:</strong> Declares properties via <code>this</code> bindings: <code>new CommunityEvent()</code>.</li>
+                    <li><strong>Prototypes:</strong> Attaching <code>checkAvailability()</code> directly to the prototype prevents creating copies of the function for each instance, conserving memory.</li>
+                    <li><strong>Object.entries():</strong> Converts the object into an array of key-value arrays: <code>[['id', 101], ['name', 'Acoustic Sunset Concert']]</code>.</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <a href="ex_4.html" class="nav-anchor">← Previous</a>
+                <a href="ex_6.html" class="nav-anchor">Next Exercise →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load external script -->
+    <script src="main_ex5.js"></script>
+</body>
+</html>

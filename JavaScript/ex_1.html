@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1: JavaScript Integration</title>
+    <style>
+        body {
+            background-color: #0c0f17;
+            color: #e2e8f0;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .page-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        .content-panel {
+            background-color: rgba(30, 41, 59, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .nav-anchor {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-anchor:hover {
+            color: #f43f5e;
+        }
+        .info-box {
+            background-color: rgba(244, 63, 94, 0.1);
+            border: 1px solid rgba(244, 63, 94, 0.25);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            color: #fb7185;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="content-panel">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+                <a class="nav-anchor" href="index.html">← Back to Dashboard</a>
+                <span style="color: #c084fc; font-weight: bold;">Exercise 1</span>
+            </div>
+
+            <h1 style="margin: 0; font-size: 2.2rem; font-weight: 800; background: linear-gradient(90deg, #38bdf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">JavaScript Basics &amp; Setup</h1>
+            <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 10px; line-height: 1.6;">
+                This page tests basic script connectivity. It imports an external script <code>main.js</code> using the <code>&lt;script src="main.js"&gt;&lt;/script&gt;</code> syntax.
+            </p>
+
+            <div class="info-box">
+                <h4 style="margin: 0 0 8px 0; font-weight: 700;">Page Load Verified!</h4>
+                <p style="margin: 0; font-size: 0.95rem; line-height: 1.5; color: #cbd5e1;">
+                    When you loaded this page, the external script triggered a browser alert box and logged <code>"Welcome to the Community Portal"</code> to the developer tools console.
+                </p>
+            </div>
+
+            <div style="margin-top: 25px;">
+                <h5 style="color: #ffffff; margin-bottom: 10px;">Steps to view the Console Log:</h5>
+                <ol style="padding-left: 20px; line-height: 1.8; color: #94a3b8; font-size: 0.95rem;">
+                    <li>Right-click anywhere on this page and click <strong>Inspect</strong> (or press <code>F12</code> / <code>Ctrl+Shift+I</code>).</li>
+                    <li>Select the <strong>Console</strong> tab in the dev tools.</li>
+                    <li>You will see the greeting message printed by <code>main.js</code>.</li>
+                </ol>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <a href="index.html" class="nav-anchor">← Dashboard</a>
+                <a href="ex_2.html" class="nav-anchor">Exercise 2 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load external JS file -->
+    <script src="main.js"></script>
+</body>
+</html>

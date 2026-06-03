@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promo Video</title>
+    <script>
+        function onVideoReady() {
+            alert("Video ready to play");
+        }
+
+        window.onbeforeunload = function () {
+            return "Your form is not completed!";
+        };
+    </script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <h2>Event Promo Video</h2>
+        <video width="400" controls oncanplay="onVideoReady()">
+            <source src="eventvideo.mp4" type="video/mp4">
+        </video>
+    </div>
+</body>
+</html>

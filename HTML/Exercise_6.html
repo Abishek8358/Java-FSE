@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Events</title>
+    <script>
+        function checkPhone() {
+            let phoneNum = document.getElementById("phoneInput").value;
+            if (phoneNum.length !== 10) {
+                alert("Phone number must be 10 digits");
+            }
+        }
+
+        function displayFee() {
+            let selectedFee = document.getElementById("eventSelect").value;
+            document.getElementById("feeDisplay").innerHTML = "Event Fee: " + selectedFee;
+        }
+
+        function handleSubmit() {
+            alert("Feedback Submitted");
+        }
+
+        function zoomImage(imgEl) {
+            imgEl.style.width = "300px";
+        }
+
+        function updateCharCount() {
+            let inputText = document.getElementById("feedbackBox").value;
+            document.getElementById("charCount").innerHTML = "Characters: " + inputText.length;
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <h2>Feedback Form</h2>
+        Phone:
+        <input type="text" id="phoneInput" onblur="checkPhone()">
+        <br><br>
+        Select Event:
+        <select id="eventSelect" onchange="displayFee()">
+            <option value="100">Music</option>
+            <option value="200">Sports</option>
+        </select>
+        <p id="feeDisplay"></p>
+        <button onclick="handleSubmit()">Submit</button>
+        <br><br>
+        <img src="event.jpg" width="150" ondblclick="zoomImage(this)">
+        <br><br>
+        <textarea id="feedbackBox" onkeyup="updateCharCount()"></textarea>
+        <p id="charCount">Characters: 0</p>
+    </div>
+</body>
+</html>

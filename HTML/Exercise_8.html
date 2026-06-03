@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Preferences</title>
+    <script>
+        function storePreference() {
+            let chosenEvent = document.getElementById("eventChoice").value;
+            localStorage.setItem("event", chosenEvent);
+            alert("Preference Saved");
+        }
+
+        function retrievePreference() {
+            let storedEvent = localStorage.getItem("event");
+            if (storedEvent) {
+                document.getElementById("eventChoice").value = storedEvent;
+            }
+        }
+
+        function resetPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+            alert("Preferences Cleared");
+        }
+    </script>
+</head>
+<body onload="retrievePreference()">
+    <div style="text-align:center;">
+        <h2>User Preferences</h2>
+        <select id="eventChoice">
+            <option>Music</option>
+            <option>Sports</option>
+            <option>Dance</option>
+        </select>
+        <br><br>
+        <button onclick="storePreference()">Save Preference</button>
+        <button onclick="resetPreferences()">Clear Preferences</button>
+    </div>
+</body>
+</html>

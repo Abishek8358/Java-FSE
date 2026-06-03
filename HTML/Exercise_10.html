@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Console Debug Test</title>
+    <style>
+        h1 {
+            color: blue;
+        }
+    </style>
+    <script>
+        function runDebugTest() {
+            let num1 = 10;
+            let num2 = 20;
+            console.log("Value of A:", num1);
+            console.log("Value of B:", num2);
+            let total = num1 + num2;
+            console.log("Sum:", total);
+            alert("Check Console for Output");
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <h1>Debugging with Chrome DevTools</h1>
+        <button onclick="runDebugTest()">Run Script</button>
+    </div>
+</body>
+</html>

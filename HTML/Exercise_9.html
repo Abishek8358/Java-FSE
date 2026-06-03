@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location Finder</title>
+    <script>
+        function getMyLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    displayCoords,
+                    handleGeoError,
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 5000
+                    }
+                );
+            } else {
+                alert("Geolocation not supported");
+            }
+        }
+
+        function displayCoords(pos) {
+            document.getElementById("userLocation").innerHTML =
+                "Latitude: " + pos.coords.latitude +
+                "<br>Longitude: " + pos.coords.longitude;
+        }
+
+        function handleGeoError(err) {
+            alert("Permission denied or timeout");
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <h2>Find Nearby Events</h2>
+        <button onclick="getMyLocation()">Find Nearby Events</button>
+        <p id="userLocation"></p>
+    </div>
+</body>
+</html>
